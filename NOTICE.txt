@@ -1,0 +1,91 @@
+猫奏乐团 · 原创武器组曲与后期经典片段说明
+更新日期 2026-11-13
+
+当前版本
+音乐以项目新写的16小节原创游戏组曲为主，120 BPM，32秒一个循环；鼓、贝斯、钢琴、吉他与战斗共用音频时钟。浏览器根据乐谱和单音采样即时演奏，未调用商业音乐生成模型，也未播放现成乐团录音。
+
+第一章，第1至5关：《橘光漫步》，F大调，明亮拨弦主旋律、F/C/Dm/Bb及后半段变化和声，全为本项目新写的音乐，不使用《命运》主题。
+第二章，第6至8关：《回旋街区》，A小调，原创短句与属和弦呼应。
+第二章，第9关：主体仍为原创，仅在每32秒循环的第5小节（第8至10秒）加入4拍《土耳其进行曲》短句。
+第二章，第10关：在第8至12秒加入8拍《土耳其进行曲》短句，包含对应的E大调属和弦与A小调回落，其余为原创。
+第三章，第11至12关：《晴空合奏》，E大调，原创旋律与和声。
+第三章，第13关：第8至10秒加入4拍《春》的开头动机。
+第三章，第14关：第8至12秒加入8拍《春》的问答动机。
+第三章，第15关：第8至12秒加入8拍《春》动机，第24至26秒以4拍再次回应；其余为原创。
+上述时间是单个循环内的位置；不是整首经典乐章，也不是原曲逐音演奏。
+
+乐器进入与混音
+背景只保留低音量和声与短句，拾取后才加入对应武器的节奏声部。贝斯提供清晰低音及经过音，钢琴在右侧分解，吉他在左侧扫弦，鼓为短而温暖的合成击打。经典片段用钢琴音色提示，随后回到原创拨弦旋律。
+原有采样保留自身自然衰减，不再给所有乐器叠加相同的快速衰减。1.3秒弦乐单音的稳定段加了短交叉淡化循环，支持更长的持续音；尾音平滑释放。
+本项目的原创音乐未在此另行声明为CC0。下述CC0仅指使用的单音采样录音。
+
+莫扎特短句的谱源
+作曲 Wolfgang Amadeus Mozart / 沃尔夫冈·阿马德乌斯·莫扎特
+作品 Piano Sonata No.11 in A major, K.331, III. Alla Turca / A大调第十一钢琴奏鸣曲第三乐章
+谱源 https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=108
+制谱 Rune Zedeler and Chris Sawer
+Mutopia 编号 Mutopia-2015/08/13-108
+谱源标注 Public Domain。
+改编变化：仅提取开头4或8个四分音符拍的右手旋律，省略极短倚音，嵌入原创游戏组曲，并为该片段重新安排匹配的半小节和声。
+引用数据与原创主体：suite-score.js。
+
+《春》短句的谱源与授权
+作曲 Antonio Vivaldi / 安东尼奥·维瓦尔第
+作品 The Four Seasons, Spring, Op.8 No.1, RV269, first movement / 四季·春，第一乐章
+谱源 https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=301
+原始版本 Performers' Facsimiles
+制谱署名 Anonymous, 2010
+Mutopia 编号 Mutopia-2010/02/08-301
+谱源许可 Creative Commons Attribution-ShareAlike 3.0 Unported
+许可链接 https://creativecommons.org/licenses/by-sa/3.0/
+改编变化：从独奏小提琴开头提取4或8拍，保留E大调音高关系并简化装饰音；嵌入原创组曲的局部问答，以钢琴提示，重配相应和声、低音与鼓点。
+原始转写资料继续单独保存在 suite-score-spring.js；引用和混合编配数据见 suite-score.js 中第13至15关的标记。
+《春》的改编谱数据，以及含该改编数据的第13至15关音乐编配，依CC BY-SA 3.0提供。其它关卡的原创音乐、游戏代码和单音采样各自沿用自身许可。此处没有把整款游戏代码声明为CC BY-SA。
+
+音色与鼓
+吉他、钢琴、拨奏低音提琴和小提琴来自CC0单音采样，完整原始出处与具体单音见 ../assets/ensemble-credits.txt。
+包括Versilian Studios VSCO Community Edition、VCSL与FreePats Spanish Classical Guitar。原文件已做单声道、去前后静音、轻淡入淡出、音量匹配和32kHz编码。
+合成鼓与短提示音由suite-audio.js即时生成。新版鼓去掉明显带音高的滑音瞬态，改用短刷击与低频鼓体；攻击触发时刻保持原有逻辑。
+
+版本对照
+本轮轻微混音调整：保留本版全部旋律、和声、速度及攻击时间，只小幅降低吉他主旋律、基础钢琴伴奏与低八度弦乐的音量，为鼓和拾取乐器留出空间；鼓与拾取声部参数保持不变。
+前一版把《命运》《土耳其进行曲》《春》的较长单声部谱段放在统一速度伴奏下，出现长音被截、和声转折不贴合和拾取乐器不够清楚的问题。本次根据试玩反馈回到原创组曲主线，只在后期关卡加入少量经典动机。
+
+
+Cat Cadenza — playable acoustic instrument samples
+
+All sixteen source recordings used by ensemble-timbres.js are distributed under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Versilian Studios and contributors — VS Chamber Orchestra 2, Community Edition
+https://versilian-studios.com/vsco-community/
+https://github.com/sgossner/VSCO-2-CE/tree/440300901dfe9275fd84e0b7763af1f8443ae62e
+Solo softly bowed violin (arco vibrato), pizzicato contrabass and low-velocity orchestral timpani hits.
+
+Versilian Studios and contributors — Versilian Community Sample Library
+https://github.com/sgossner/VCSL/tree/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e
+Kawai grand piano, player perspective, velocity layer 2.
+
+FreePats / Roberto — Spanish classical guitar (recorded 2008, release 2019-06-18)
+https://github.com/freepats/spanish-classical-guitar/tree/6f4eb1b092acc88f5448cea1a0001bd07b971af8
+https://freepats.zenvoid.org/Guitar/acoustic-guitar.html
+
+Source files and root pitches (MIDI; middle C = 60):
+  drum 41: Percussion/Timpani/Timpani1_Hit_v1_rr1_Sum.wav
+  drum 47: Percussion/Timpani/Timpani2_Hit_v1_rr1_Sum.wav
+  drum 49: Percussion/Timpani/Timpani3_Hit_v1_rr1_Sum.wav
+  strings 60: Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C4_p.wav
+  strings 69: Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_p.wav
+  strings 76: Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E5_p.wav
+  bass 36: Strings/Solo Contrabass/Pizz/BKCtbss_Pizz_C1_v1_rr1.wav
+  bass 45: Strings/Solo Contrabass/Pizz/BKCtbss_Pizz_A1_v1_rr1.wav
+  bass 59: Strings/Solo Contrabass/Pizz/BKCtbss_Pizz_B2_v1_rr1.wav
+  piano 60: Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C3_v2_rr1_Player.wav
+  piano 72: Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C4_v2_rr1_Player.wav
+  piano 84: Chordophones/Zithers/Grand Piano, Kawai/Sustains/GPiano_sus_C5_v2_rr1_Player.wav
+  guitar 48: samples/C3.flac
+  guitar 57: samples/A3.flac
+  guitar 60: samples/C4.flac
+  guitar 69: samples/A4.flac
+
+Edits for this game: mixed to mono, trimmed leading silence and tails, gently faded, level-matched, then encoded to 32 kHz mono MP3. The timpani were pitch-adjusted to their listed roots. The recordings are individual instrument notes.
