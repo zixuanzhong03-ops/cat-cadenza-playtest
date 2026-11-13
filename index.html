@@ -13,11 +13,10 @@ body { margin: 0; min-height: 100dvh; padding:env(safe-area-inset-top) 0 env(saf
 button { font: inherit; cursor: pointer; touch-action: manipulation; }
 button:focus-visible { outline: 3px solid #9ff9ed; outline-offset: 3px; }
 main { display: flex; gap: clamp(36px, 7vw, 100px); align-items: center; justify-content: center; width: 100%; padding: 16px; }
-#stage { --stage-height:774; --battle-height:89.147287%; --controls-height:10.852713%; position:relative; width:min(420px,calc((100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*420/var(--stage-height))); aspect-ratio:420/var(--stage-height); overflow:hidden; background:#304e91; border-radius:14px; box-shadow:0 22px 80px #07112690,0 0 0 1px #a7b3cf33; container-type:inline-size; touch-action:none; user-select:none; -webkit-user-select:none; }
-#stage[data-control-mode=stick] { --stage-height:862; --battle-height:80.046404%; --controls-height:19.953596%; }
+#stage { --stage-height:770; --battle-height:89.61039%; --controls-height:10.38961%; position:relative; width:min(420px,calc((100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom))*420/var(--stage-height))); aspect-ratio:420/var(--stage-height); overflow:hidden; background:#304e91; border-radius:14px; box-shadow:0 22px 80px #07112690,0 0 0 1px #a7b3cf33; container-type:inline-size; touch-action:none; user-select:none; -webkit-user-select:none; }
 #playfield { position:absolute; inset:0 0 auto; width:100%; height:var(--battle-height); overflow:hidden; }
 #arena, #hud, .overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
-#arena { outline: none; }
+#arena { outline:none; -webkit-touch-callout:none; }
 #hud { pointer-events: none; }
 .overlay { z-index:6; }
 .hud-top { position: absolute; left: 4%; right: 4%; top: 2.3%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
@@ -44,30 +43,13 @@ main { display: flex; gap: clamp(36px, 7vw, 100px); align-items: center; justify
 .beatline i { flex: 1; background: #6d81a04f; border-radius: 2px; }
 .beatline i.now { background: #ffd190; }
 .beatline i.accent { box-shadow: 0 0 12px #ffbd7555; }
-#controlPanel { position:absolute; inset:auto 0 0; height:var(--controls-height); display:grid; grid-template-columns:32cqw minmax(0,1fr); align-items:center; gap:3cqw; padding:2cqw 4cqw; background:linear-gradient(115deg,#193b59,#112d48); border-top:2px solid #8bb5bc77; }
-.movement-control { display:flex; flex-direction:column; align-items:center; gap:1.2cqw; min-width:0; }
-.movement-modes { display:flex; gap:1cqw; width:100%; }
-.movement-modes button { flex:1; border:1px solid #8daebf80; border-radius:4px; padding:1cqw .5cqw; color:#b8d0dd; background:#193a55; font-size:clamp(10px,2.8cqw,12px); line-height:1.2; }
-.movement-modes button[aria-pressed=true] { color:#223e55; background:#a4e1d4; border-color:#d1fff1; font-weight:800; }
-#followHint { color:#a9c9d8; font-size:clamp(9px,2.4cqw,10px); line-height:1.3; text-align:center; }
-#joystick { position:relative; width:clamp(82px,23cqw,100px); aspect-ratio:1; flex-shrink:0; cursor:grab; touch-action:none; border-radius:50%; border:2px solid #adc7d38c; background:radial-gradient(circle,#325e73 0 27%,#203f59 29% 63%,#42667b 65% 68%,#162e49 70%); box-shadow:inset 0 2px 8px #0c203d90,0 2px 0 #0a2039; }
-#joystick:focus-visible { outline:2px solid #ffe6b6; outline-offset:2px; }
-#joystick i { position:absolute; top:50%; left:50%; width:39%; height:39%; pointer-events:none; border:1px solid #ffebc0; border-radius:50%; background:linear-gradient(#ffdaa2,#edac6a); box-shadow:0 3px 0 #a47455,0 4px 10px #061a35a0; transform:translate(-50%,-50%); }
-#joystick.moving { border-color:#ffdc9b; cursor:grabbing; }
-#joystick span { position:absolute; color:#aac6d2; font-size:clamp(17px,5cqw,22px); line-height:1; pointer-events:none; }
-.stick-up { left:50%; top:5%; transform:translateX(-50%); }
-.stick-right { right:7%; top:50%; transform:translateY(-55%); }
-.stick-down { left:50%; bottom:7%; transform:translateX(-50%); }
-.stick-left { left:7%; top:50%; transform:translateY(-55%); }
+#controlPanel { position:absolute; inset:auto 0 0; height:var(--controls-height); display:grid; grid-template-columns:minmax(0,1fr); align-items:center; gap:3cqw; padding:1.4cqw 4cqw; background:linear-gradient(115deg,#193b59,#112d48); border-top:2px solid #8bb5bc77; }
 #controlPanel .rhythm { position:static; min-width:0; padding:0; margin:0; border:0; border-radius:0; background:none; }
 #controlPanel .rhythm-head { gap:1.2cqw; font-size:clamp(9px,2.8cqw,12px); margin-bottom:1.8cqw; }
 #controlPanel #nextHit { white-space:nowrap; }
 #controlPanel .beatline { height:1.8cqw; gap:1.5cqw; }
 #controlPanel .now-playing { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-size:clamp(9px,2.35cqw,10px); line-height:1.35; padding-bottom:1.4cqw; margin-bottom:1.6cqw; }
 .control-help { margin-top:1.8cqw; font-size:clamp(9px,2.35cqw,10px); color:#a9c2d4; }
-#stage[data-control-mode=follow] .control-help { display:none; }
-#stage[data-control-mode=follow] .now-playing { -webkit-line-clamp:1; padding-bottom:1cqw; margin-bottom:1cqw; }
-#stage[data-control-mode=follow] .rhythm-head { margin-bottom:1cqw; }
 #cover { background: linear-gradient(0deg, #132a4cfa 0%, #193353e8 30%, #2444750a 77%); display: flex; align-items: flex-end; }
 .intro { padding: 0 7% 7%; width: 100%; }
 .eyebrow { color: #ffbe84; font-size: 2.8cqw; letter-spacing: .1em; font-weight: 700; }
@@ -265,6 +247,10 @@ aside>small { display: block; color: #8da5c2; font-size: 12px; margin-top: 20px;
 .now-playing { font-size:2.35cqw; color:#b7ccdf; line-height:1.3; padding-bottom:1.8cqw; margin-bottom:1.7cqw; border-bottom:1px solid #8ba8bf44; }
 .now-playing:empty { display:none; }
 .menu-footer .primary:disabled { background:#526d87; color:#c9d5df; cursor:default; box-shadow:none; }
+
+#controlPanel .now-playing{ -webkit-line-clamp:1; padding-bottom:.8cqw; margin-bottom:.8cqw; }
+#controlPanel .rhythm-head{ margin-bottom:1cqw; }
+.control-help{ margin-top:1cqw; }
 </style>
 
 <style>
@@ -273,22 +259,21 @@ aside>small { display: block; color: #8da5c2; font-size: 12px; margin-top: 20px;
 </head>
 <body>
 <main>
-  <section id="stage" data-control-mode="follow" aria-label="猫奏乐团，三章武器组曲试玩">
+  <section id="stage" aria-label="猫奏乐团，三章武器组曲试玩">
     <div id="playfield">
-    <canvas id="arena" width="420" height="690" tabindex="-1" aria-label="战斗画面；按住舞台，猫跟随指尖移动，松手停下"></canvas>
+    <canvas id="arena" width="420" height="690" tabindex="-1" aria-label="战斗画面；按住舞台拖动移动，松手停下"></canvas>
     <div id="hud" hidden>
       <div class="hud-top"><div class="health-panel"><span class="health-caption">生命</span><span id="health" role="img" aria-label="生命"></span></div><b id="clock">30.0<span>秒</span></b><div class="tools"><button id="sound" aria-label="静音">♫</button><button id="pause" aria-label="暂停">Ⅱ</button></div></div>
       <div class="progress"><i id="progress"></i></div>
       <div class="arrangement"><div id="instrumentVoices"></div><span id="kills">0 击散</span></div>
       <div class="energy"><span class="energy-level"><small>等级</small><b id="runLevel">1</b></span><div class="energy-body"><div class="energy-caption"><span>击散音符 · 积累音能</span><span id="energyValue">0 / 50</span></div><div id="energyTrack" class="energy-track" role="progressbar" aria-label="本局升级音能" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><i id="energyFill"></i></div></div></div>
       <div id="chain" aria-live="polite"></div>
-      <div id="hint">按住舞台走向橙色鼓，靠近自动拾取</div>
+      <div id="hint">按住舞台拖动走向橙色鼓，靠近自动拾取</div>
     </div>
     <div id="damageFlash" aria-hidden="true"><span>−1</span></div>
     </div>
     <section id="controlPanel" hidden aria-label="移动与节拍操作区">
-      <div class="movement-control"><div class="movement-modes" role="group" aria-label="选择移动方式"><button id="followMode" aria-pressed="true">跟手</button><button id="stickMode" aria-pressed="false">摇杆</button></div><div id="followHint">在上方舞台<br>按住拖动小猫</div><div id="joystick" hidden role="group" tabindex="0" aria-label="固定移动摇杆，按住方向移动，松手停止"><span class="stick-up" aria-hidden="true">⌃</span><span class="stick-right" aria-hidden="true">›</span><span class="stick-down" aria-hidden="true">⌄</span><span class="stick-left" aria-hidden="true">‹</span><i aria-hidden="true"></i></div></div>
-      <div class="rhythm"><div id="playingTrack" class="now-playing"></div><div class="rhythm-head"><span id="rhythmName">走向橙色鼓</span><span id="nextHit"></span></div><div class="beatline" id="beatline"><i></i><i></i><i></i><i></i></div><div class="control-help">按住方向移动 · 松手停下</div></div>
+      <div class="rhythm"><div id="playingTrack" class="now-playing"></div><div class="rhythm-head"><span id="rhythmName">走向橙色鼓</span><span id="nextHit"></span></div><div class="beatline" id="beatline"><i></i><i></i><i></i><i></i></div><div class="control-help">按住舞台拖动移动 · 松手停下</div></div>
     </section>
     <section id="cover" class="overlay" aria-label="开始演奏">
       <div class="menu-header"><div><span id="chapterEyebrow" class="eyebrow">第一章 · 命运开场</span><h1>猫奏乐团<span>。</span></h1></div><strong id="wallet">金币 0</strong></div>
@@ -300,7 +285,7 @@ aside>small { display: block; color: #8da5c2; font-size: 12px; margin-top: 20px;
       <div class="menu-footer">
         <div id="carryList" hidden></div>
         <button class="primary" id="start">开始第 1 关 <span>♪</span></button>
-        <small id="menuNote">舞台内跟手移动 · 可切换固定摇杆 · 建议开启声音</small><small id="storageStatus" hidden></small>
+        <small id="menuNote">按住舞台拖动移动 · 松手停下 · 建议开启声音</small><small id="storageStatus" hidden></small>
       </div>
     </section>
     <section id="dialog" class="overlay modal" hidden aria-modal="true" role="dialog" aria-labelledby="dialogTitle">
@@ -1118,26 +1103,21 @@ window.CadenzaTimbres = {
       const targetX=clamp(x,FIELD.left,FIELD.right),targetY=clamp(y,FIELD.top,FIELD.bottom);
       const dx=targetX-startX,dy=targetY-startY,distance=Math.hypot(dx,dy);
       if(distance<.00001){p.moving=false;return false;}
-      // Follow the finger without skipping pickups or enemy contact along a fast swipe.
       const steps=Math.ceil(distance/8);
       for(let i=1;i<=steps&&this.state==='play';i++){
         p.x=startX+dx*i/steps;p.y=startY+dy*i/steps;
-        this.pickup();
-        if(this.state!=='play')break;
-        if(p.invuln<=0){
-          for(const enemy of this.enemies){
-            if(enemy.falling||enemy.entryDelay>0||enemy.stagger>0)continue;
-            if(Math.hypot(enemy.x-p.x,enemy.y-p.y)<p.radius+enemy.radius-3){this.hurt();break;}
-          }
+        this.pickup();if(this.state!=='play')break;
+        if(p.invuln<=0)for(const enemy of this.enemies){
+          if(enemy.falling||enemy.entryDelay>0||enemy.stagger>0)continue;
+          if(Math.hypot(enemy.x-p.x,enemy.y-p.y)<p.radius+enemy.radius-3){this.hurt();break;}
         }
       }
-      const movedX=p.x-startX,movedY=p.y-startY,moved=Math.hypot(movedX,movedY);
-      this.dir={x:movedX/(moved||1),y:movedY/(moved||1)};
+      const mx=p.x-startX,my=p.y-startY,moved=Math.hypot(mx,my);
+      this.dir={x:mx/(moved||1),y:my/(moved||1)};
       if(Math.abs(this.dir.x)>.12)p.face=this.dir.x<0?-1:1;
-      const slope=Math.abs(movedY)/Math.max(.01,Math.abs(movedX));
-      if(slope>1.18||(p.view!=='side'&&slope>.86))p.view=movedY<0?'up':'down';else p.view='side';
-      p.moving=this.state==='play'&&moved>.00001;
-      return moved>.00001;
+      const slope=Math.abs(my)/Math.max(.01,Math.abs(mx));
+      if(slope>1.18||(p.view!=='side'&&slope>.86))p.view=my<0?'up':'down';else p.view='side';
+      p.moving=this.state==='play'&&moved>.00001;return moved>.00001;
     }
 
     pickup() {
@@ -4820,7 +4800,7 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
   'use strict';
   const $ = id => document.getElementById(id);
   const canvas=$('arena'), context=canvas.getContext('2d',{alpha:false}), stage=$('stage');
-  const joystick=$('joystick'), joystickKnob=joystick.querySelector('i'), controls=$('controlPanel');
+  const controls=$('controlPanel');
   const audio=new SuiteAudio(), profile=new SuiteProgress(), ads=new SuiteAds();
   const ui=SuiteUI;
   const assets={}, keys=new Set(), reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -4832,10 +4812,9 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
   let chapterId=SuiteProgress.stage(selected).chapterId, previewEnds=0, previewRequest=0, previewSteps=[];
   let level=SuiteProgress.stage(selected), sim=new SuiteSim(Math.random,level,profile.loadout());
   let cover=true, paused=false, launching=false, muted=false, adBusy=false;
-  let stick=null, followTouch=null, directTarget=null, controlMode='follow', shownDialog='', hint='', hintUntil=0, chainUntil=0, shakeUntil=0;
+  let dragTouch=null, dragTarget=null, shownDialog='', hint='', hintUntil=0, chainUntil=0, shakeUntil=0;
   let runId=null, result=null, settlementExpired=false, adFeedback='', countdownEnds=0;
   let carryPreferences=['bass'];
-  try {if(localStorage.getItem('cadenza-control-mode')==='stick')controlMode='stick';}catch{}
   try {
     const saved=JSON.parse(localStorage.getItem('cadenza-carry-instruments'));
     if(Array.isArray(saved))carryPreferences=[...new Set(saved.filter(kind=>['bass','piano','guitar'].includes(kind)))].slice(0,2);
@@ -4852,27 +4831,11 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
     context.setTransform(canvas.width/420,0,0,canvas.height/690,0,0);
   }
   function playing() {return !cover&&!paused&&!adBusy&&!countdownEnds&&sim.state==='play';}
-  function releaseStick() {
-    const id=stick?.id;stick=null;joystick.classList.remove('moving');
-    joystickKnob.style.transform='translate(-50%,-50%)';
-    if(id!==undefined&&joystick.hasPointerCapture(id))joystick.releasePointerCapture(id);
-  }
-  function releaseFollow() {
-    const id=followTouch?.id;followTouch=null;
+  function releaseDrag() {
+    const id=dragTouch?.id;dragTouch=null;dragTarget=null;
     if(id!==undefined&&canvas.hasPointerCapture(id))canvas.releasePointerCapture(id);
   }
-  function clearInput() {keys.clear();releaseStick();releaseFollow();directTarget=null;}
-  function setControlMode(mode,save=true) {
-    clearInput();controlMode=mode;stage.dataset.controlMode=mode;
-    joystick.hidden=mode!=='stick';$('followHint').hidden=mode!=='follow';
-    $('followMode').setAttribute('aria-pressed',String(mode==='follow'));
-    $('stickMode').setAttribute('aria-pressed',String(mode==='stick'));
-    canvas.setAttribute('aria-label',mode==='follow'?'战斗画面；按住舞台，猫跟随指尖移动，松手停下':'战斗画面；使用下方固定摇杆移动，靠近鼓自动拾取');
-    $('menuNote').textContent=mode==='follow'?'舞台内跟手移动 · 可切换固定摇杆 · 建议开启声音':'下方固定摇杆移动 · 松手停下 · 建议开启声音';
-    if(save)try{localStorage.setItem('cadenza-control-mode',mode);}catch{}
-    resize();
-    if(!cover)say(mode==='follow'?'按住舞台，小猫跟手移动 · 松手停下':'按住下方摇杆方向移动 · 松手停下',3);
-  }
+  function clearInput() {keys.clear();releaseDrag();}
   function say(text,seconds=2) {hint=text;hintUntil=sim.time+seconds;}
   function starsText(stars) {return stars.map(value=>value?'★':'☆').join('');}
   function stageLabel(id) {
@@ -5018,7 +4981,7 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
       clearInput();$('cover').hidden=true;$('dialog').hidden=true;$('countdown').hidden=true;$('hud').hidden=false;controls.hidden=false;
       audio.configure(level);audio.start();readEvents();
       const score=SuiteScores.forStage(level);$('playingTrack').textContent=score.composer+' · '+score.title+' · '+stageLabel(id);
-      say(controlMode==='follow'?'按住舞台，小猫跟手移动 · 松手停下':'按住下方摇杆方向移动 · 松手停下',4);
+      say('按住舞台拖动移动 · 松手停下',4);
       canvas.focus({preventScroll:true});
     } catch(error) {
       audio.pause();cover=true;$('cover').hidden=false;$('hud').hidden=true;controls.hidden=true;$('loading').textContent='乐器准备失败，点此关闭后重试。';
@@ -5143,10 +5106,10 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
     if(paused)audio.pause(sim.time);else{audio.resume();canvas.focus({preventScroll:true});}showDialog();
   }
   function vector() {
-    if(controlMode==='follow'&&followTouch)return [0,0];
+    if(dragTouch)return [0,0];
     let x=(keys.has('d')||keys.has('arrowright')?1:0)-(keys.has('a')||keys.has('arrowleft')?1:0);
     let y=(keys.has('s')||keys.has('arrowdown')?1:0)-(keys.has('w')||keys.has('arrowup')?1:0);
-    if(stick){x+=stick.dx;y+=stick.dy;}const length=Math.max(1,Math.hypot(x,y));return [x/length,y/length];
+    const length=Math.max(1,Math.hypot(x,y));return [x/length,y/length];
   }
   function updateHUD() {
     $('clock').firstChild.textContent=Math.max(0,sim.duration-sim.time).toFixed(1);
@@ -5202,9 +5165,10 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
       if(left<=0){countdownEnds=0;$('countdown').hidden=true;audio.resume();canvas.focus({preventScroll:true});}
     }
     if(playing()) {
-      audio.update();let followed=false;
-      if(controlMode==='follow'&&directTarget){
-        const target=directTarget;directTarget=null;followed=sim.moveDirect(target.x,target.y);readEvents();
+      audio.update();let dragged=false;
+      if(dragTouch?.active&&dragTarget){
+        const target=dragTarget;dragTarget=null;dragged=sim.moveDirect(target.x,target.y);readEvents();
+        if(dragTouch){dragTouch.catX=sim.player.x;dragTouch.catY=sim.player.y;dragTouch.startX=dragTouch.lastX;dragTouch.startY=dragTouch.lastY;}
       }
       if(playing()){
         const now=Math.min(sim.duration,audio.position()),[dx,dy]=vector();
@@ -5213,53 +5177,30 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
         }
         sim.advance(now,dx,dy);readEvents();
       }
-      if(followed&&sim.state==='play')sim.player.moving=true;
+      if(dragged&&sim.state==='play')sim.player.moving=true;
       if(sim.state!=='play')audio.pause(sim.time);showDialog();updateHUD();
     }draw();requestAnimationFrame(frame);
   }
 
-  function pointToStage(event) {
-    const rect=followTouch.rect;
-    directTarget={x:(event.clientX-rect.left)*420/rect.width,y:(event.clientY-rect.top)*690/rect.height};
-  }
+  canvas.addEventListener('contextmenu',event=>event.preventDefault());
   canvas.addEventListener('pointerdown',event=>{
-    if(!playing()||controlMode!=='follow'||followTouch||event.button!==0)return;
-    event.preventDefault();followTouch={id:event.pointerId,rect:canvas.getBoundingClientRect()};
-    canvas.setPointerCapture(event.pointerId);pointToStage(event);
+    if(!playing()||dragTouch||event.button!==0||event.isPrimary===false)return;
+    event.preventDefault();
+    dragTouch={id:event.pointerId,startX:event.clientX,startY:event.clientY,lastX:event.clientX,lastY:event.clientY,
+      catX:sim.player.x,catY:sim.player.y,rect:canvas.getBoundingClientRect(),active:false};
+    dragTarget=null;canvas.setPointerCapture(event.pointerId);
   });
   canvas.addEventListener('pointermove',event=>{
-    if(followTouch?.id!==event.pointerId)return;
-    event.preventDefault();if(!playing()){clearInput();return;}pointToStage(event);
+    if(dragTouch?.id!==event.pointerId)return;
+    event.preventDefault();if(!playing()){clearInput();return;}
+    const dx=event.clientX-dragTouch.startX,dy=event.clientY-dragTouch.startY;
+    if(!dragTouch.active&&Math.hypot(dx,dy)<3)return;
+    dragTouch.active=true;dragTouch.lastX=event.clientX;dragTouch.lastY=event.clientY;
+    dragTarget={x:dragTouch.catX+dx*420/dragTouch.rect.width,y:dragTouch.catY+dy*690/dragTouch.rect.height};
   });
   for(const type of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(type,event=>{
-    if(followTouch?.id!==event.pointerId)return;
-    if(type!=='pointerup')directTarget=null;
-    releaseFollow();
+    if(dragTouch?.id===event.pointerId)releaseDrag();
   });
-  function steer(event) {
-    const x=event.clientX-stick.x,y=event.clientY-stick.y,length=Math.hypot(x,y);
-    const strength=Math.min(1,Math.max(0,(length-3)/(stick.reach-3)));
-    stick.dx=length?x/length*strength:0;stick.dy=length?y/length*strength:0;
-    const travel=strength*stick.travel;
-    joystickKnob.style.transform='translate(calc(-50% + '+(length?x/length*travel:0)+'px),calc(-50% + '+(length?y/length*travel:0)+'px))';
-    joystick.classList.toggle('moving',strength>0);
-  }
-  joystick.addEventListener('pointerdown',event=>{
-    if(!playing()||controlMode!=='stick'||stick||event.button!==0)return;
-    const rect=joystick.getBoundingClientRect(),x=rect.left+rect.width/2,y=rect.top+rect.height/2;
-    if(Math.hypot(event.clientX-x,event.clientY-y)>rect.width/2)return;
-    event.preventDefault();
-    stick={id:event.pointerId,x,y,reach:rect.width*.28,travel:rect.width*.27,dx:0,dy:0};
-    joystick.setPointerCapture(event.pointerId);steer(event);
-  });
-  joystick.addEventListener('pointermove',event=>{
-    if(!stick||event.pointerId!==stick.id)return;
-    event.preventDefault();
-    if(!playing()){releaseStick();return;}
-    steer(event);
-  });
-  const endTouch=event=>{if(stick?.id===event.pointerId)releaseStick();};
-  for(const type of ['pointerup','pointercancel','lostpointercapture'])joystick.addEventListener(type,endTouch);
   window.addEventListener('keydown',event=>{
     const key=event.key.toLowerCase();if(key==='escape'&&!event.repeat){togglePause();return;}
     if(!cover&&sim.state==='upgrade'&&['1','2','3'].includes(key)){const choice=sim.choices[Number(key)-1];if(choice)choose(choice.id);return;}
@@ -5278,7 +5219,6 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
     tool.onclick=event=>{if(event.detail!==0&&performance.now()-touchAt<600)return;action();};
   }
   $('start').onclick=()=>start();bindTool('pause',togglePause);
-  bindTool('followMode',()=>setControlMode('follow'));bindTool('stickMode',()=>setControlMode('stick'));
   bindTool('sound',()=>{muted=!muted;audio.mute(muted);$('sound').textContent=muted?'×':'♫';$('sound').setAttribute('aria-label',muted?'开启声音':'静音');canvas.focus({preventScroll:true});});
   $('previewMusic').onclick=togglePreview;
   $('levelsTab').onclick=()=>{stopPreview();tab='levels';renderMenu();};$('workshopTab').onclick=()=>{stopPreview();tab='workshop';renderMenu();};
@@ -5288,11 +5228,11 @@ window.SuiteScores={chapters:Object.freeze([scores[0],scores[5],scores[10]]),sco
   }
   if(new URLSearchParams(location.search).has('ohmygamePlaytest')){
     window.__OHMYGAME_PLAYTEST__={snapshot:()=>({...sim.snapshot(),state:cover?'cover':adBusy?'ad':paused?'pause':countdownEnds?'countdown':sim.state,
-      audioPosition:audio.position(),audioMode:audio.mode,pendingMode:audio.pendingMode,nextHit:audio.nextStrike(),muted,selected,difficulty,controlMode,
+      audioPosition:audio.position(),audioMode:audio.mode,pendingMode:audio.pendingMode,nextHit:audio.nextStrike(),muted,selected,difficulty,controlMode:'drag',
       coins:profile.data.coins,unlocked:profile.unlocked(),stars:profile.totalStars(),bassUnlocked:profile.bassUnlocked(),chapterId,
       chapterTitle:cover?SuiteProgress.chapters.find(chapter=>chapter.id===chapterId).title:level.chapterTitle,previewing:Boolean(previewEnds),result})};
   }
-  setControlMode(controlMode,false);renderMenu();new ResizeObserver(resize).observe(stage);resize();requestAnimationFrame(frame);
+  renderMenu();new ResizeObserver(resize).observe(stage);resize();requestAnimationFrame(frame);
 })();
 </script>
 
