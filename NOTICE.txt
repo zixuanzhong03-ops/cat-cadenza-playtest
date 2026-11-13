@@ -1,55 +1,67 @@
-猫奏乐团 · 原创武器组曲与后期经典片段说明
-更新日期 2026-11-13
+猫奏乐团 · 三章经典游戏演奏版与乐器说明
+更新日期：2026-11-13
 
 当前版本
-音乐以项目新写的16小节原创游戏组曲为主，120 BPM，32秒一个循环；鼓、贝斯、钢琴、吉他与战斗共用音频时钟。浏览器根据乐谱和单音采样即时演奏，未调用商业音乐生成模型，也未播放现成乐团录音。
+第一章第1至5关：帕赫贝尔《D大调卡农》。第二章第6至10关：莫扎特《土耳其进行曲》。第三章第11至15关：维瓦尔第《春》第一乐章。
+三章以真实谱源旋律为主体；浏览器使用乐谱、CC0单音采样及少量合成音色即时演奏，不使用商业录音或音乐生成模型。本版本没有使用《命运》主题。
+每曲选取128个四分音符拍，在120 BPM下构成64秒素材循环；不是整首乐章。关卡时长沿用各关配置，完整循环按需重复，最后4秒进入游戏收束句。
 
-第一章，第1至5关：《橘光漫步》，F大调，明亮拨弦主旋律、F/C/Dm/Bb及后半段变化和声，全为本项目新写的音乐，不使用《命运》主题。
-第二章，第6至8关：《回旋街区》，A小调，原创短句与属和弦呼应。
-第二章，第9关：主体仍为原创，仅在每32秒循环的第5小节（第8至10秒）加入4拍《土耳其进行曲》短句。
-第二章，第10关：在第8至12秒加入8拍《土耳其进行曲》短句，包含对应的E大调属和弦与A小调回落，其余为原创。
-第三章，第11至12关：《晴空合奏》，E大调，原创旋律与和声。
-第三章，第13关：第8至10秒加入4拍《春》的开头动机。
-第三章，第14关：第8至12秒加入8拍《春》的问答动机。
-第三章，第15关：第8至12秒加入8拍《春》动机，第24至26秒以4拍再次回应；其余为原创。
-上述时间是单个循环内的位置；不是整首经典乐章，也不是原曲逐音演奏。
+减少重复与伴奏方式
+第一、二章五关依次从所选素材第0、16、48、64、96拍起步；第三章为第0、16、32、64、112拍。起点选在原音符或休止边界，旋律、和声和低音同步轮换，仍为同一曲的连续128拍素材。首关《卡农》直接从熟悉的F#–E–D–C#主题进入，无长铺底前奏。
+保留谱源音高、长短音与休止；同一时刻右手和弦只提取最高旋律音，采用该音自身的时值，省略不足0.12拍的极短倚音。连续同音小提琴十六分震音可合并为同总时长持续音，避免机械重复。没有把经典主题重写为原创旋律。
+背景钢琴仅每四拍轻奏一次，取消机械高频点缀与旋律低八度叠加。鼓、拾取乐器与伤害共享AudioContext时钟；轻量伴奏为拾取声部留出空间。和声是供战斗使用的简化重配，不是原总谱完整管弦乐还原。
 
-乐器进入与混音
-背景只保留低音量和声与短句，拾取后才加入对应武器的节奏声部。贝斯提供清晰低音及经过音，钢琴在右侧分解，吉他在左侧扫弦，鼓为短而温暖的合成击打。经典片段用钢琴音色提示，随后回到原创拨弦旋律。
-原有采样保留自身自然衰减，不再给所有乐器叠加相同的快速衰减。1.3秒弦乐单音的稳定段加了短交叉淡化循环，支持更长的持续音；尾音平滑释放。
-本项目的原创音乐未在此另行声明为CC0。下述CC0仅指使用的单音采样录音。
+第一章《卡农》谱源与授权
+作曲：Johann Pachelbel / 约翰·帕赫贝尔
+作品：Canon in D / D大调卡农
+谱源：https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1700
+MIDI：https://www.mutopiaproject.org/ftp/PachelbelJ/CanonInD/CanonInD.mid
+LilyPond：https://www.mutopiaproject.org/ftp/PachelbelJ/CanonInD/CanonInD.ly
+原谱来源：Jim Paterson, www.mfiles.co.uk (with permission)
+排谱署名：Anonymous
+Mutopia编号：Mutopia-2009/09/07-1700
+谱源许可：Creative Commons Attribution 3.0 Unported
+许可：https://creativecommons.org/licenses/by/3.0/
+Cat Cadenza 2026修改：提取该小提琴谱第32至160四分拍（从0计，含起点不含终点），平移为128拍；保留旋律音高、时值与休止，加入D–A–Bm–F#m–G–D–G–A每两拍一和弦的卡农低音，重配武器声部、轮换乐句并统一至120 BPM。改编谱数据依CC BY 3.0提供，不暗示原作者为本游戏背书。
+改编数据：suite-score.js。
 
-莫扎特短句的谱源
-作曲 Wolfgang Amadeus Mozart / 沃尔夫冈·阿马德乌斯·莫扎特
-作品 Piano Sonata No.11 in A major, K.331, III. Alla Turca / A大调第十一钢琴奏鸣曲第三乐章
-谱源 https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=108
-制谱 Rune Zedeler and Chris Sawer
-Mutopia 编号 Mutopia-2015/08/13-108
-谱源标注 Public Domain。
-改编变化：仅提取开头4或8个四分音符拍的右手旋律，省略极短倚音，嵌入原创游戏组曲，并为该片段重新安排匹配的半小节和声。
-引用数据与原创主体：suite-score.js。
+第二章《土耳其进行曲》谱源
+作曲：Wolfgang Amadeus Mozart / 沃尔夫冈·阿马德乌斯·莫扎特
+作品：Piano Sonata No.11 in A major, K.331, III. Alla Turca
+谱源：https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=108
+排谱：Rune Zedeler and Chris Sawer
+Mutopia编号：Mutopia-2015/08/13-108
+谱源标注：Public Domain
+说明：https://www.mutopiaproject.org/legal.html
+Cat Cadenza 2026修改：提取原右手前128四分拍的最高旋律声部，保留原音高、该旋律音自身时值与休止，略去极短倚音；根据原左手每两拍的实际音符化简和弦与低音。出现G#的E属和声使用大三度，不把它配为含G自然的E小三和弦。结尾使用游戏用A大调收束句，关卡按完整乐句轮换。
+改编数据：suite-score.js。
 
-《春》短句的谱源与授权
-作曲 Antonio Vivaldi / 安东尼奥·维瓦尔第
-作品 The Four Seasons, Spring, Op.8 No.1, RV269, first movement / 四季·春，第一乐章
-谱源 https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=301
-原始版本 Performers' Facsimiles
-制谱署名 Anonymous, 2010
-Mutopia 编号 Mutopia-2010/02/08-301
-谱源许可 Creative Commons Attribution-ShareAlike 3.0 Unported
-许可链接 https://creativecommons.org/licenses/by-sa/3.0/
-改编变化：从独奏小提琴开头提取4或8拍，保留E大调音高关系并简化装饰音；嵌入原创组曲的局部问答，以钢琴提示，重配相应和声、低音与鼓点。
-原始转写资料继续单独保存在 suite-score-spring.js；引用和混合编配数据见 suite-score.js 中第13至15关的标记。
-《春》的改编谱数据，以及含该改编数据的第13至15关音乐编配，依CC BY-SA 3.0提供。其它关卡的原创音乐、游戏代码和单音采样各自沿用自身许可。此处没有把整款游戏代码声明为CC BY-SA。
+第三章《春》谱源与授权
+作曲：Antonio Vivaldi / 安东尼奥·维瓦尔第
+作品：The Four Seasons, Spring, Op.8 No.1, RV269, first movement
+谱源：https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=301
+原始版本：Performers' Facsimiles
+排谱署名：Anonymous, 2010
+Mutopia编号：Mutopia-2010/02/08-301
+谱源许可：Creative Commons Attribution-ShareAlike 3.0 Unported
+许可：https://creativecommons.org/licenses/by-sa/3.0/
+Cat Cadenza 2026修改：提取独奏小提琴前128四分拍；保留E大调主题音高、长短句和休止，简化极短装饰及连续同音十六分震音；依据原第二小提琴、中提琴与大提琴声部，在E大调调性内化简每两拍和声，加入同步武器声部、关卡乐句轮换与120 BPM游戏收束。
+改编谱数据单独保存在suite-score-spring.js。《春》的改编谱数据及含该数据的第11至15关音乐编配，均依CC BY-SA 3.0提供。其它关卡、独立游戏引擎及单音采样各自沿用自身许可；这不将整款游戏代码声明为CC BY-SA。
 
-音色与鼓
-吉他、钢琴、拨奏低音提琴和小提琴来自CC0单音采样，完整原始出处与具体单音见 ../assets/ensemble-credits.txt。
-包括Versilian Studios VSCO Community Edition、VCSL与FreePats Spanish Classical Guitar。原文件已做单声道、去前后静音、轻淡入淡出、音量匹配和32kHz编码。
-合成鼓与短提示音由suite-audio.js即时生成。新版鼓去掉明显带音高的滑音瞬态，改用短刷击与低频鼓体；攻击触发时刻保持原有逻辑。
+乐器进入与原型音色
+鼓使用短刷击瞬态和低频合成鼓体。贝斯、钢琴、吉他分别在小节内0、0.5、1秒相位进入，每2秒一个攻击事件。当前保留鼓与两个副乐器槽，以控制合奏密度。
+第6关小提琴：短弓高音，每1秒一个攻击，相位0.25秒。
+第8关大提琴：低音长弓，每4秒一个攻击，相位1.5秒。
+上述弦乐暂共用CC0小提琴单音库，以音区、长度与包络区分；低音弦乐是原型移调音色，并非新增真实大提琴录音。
+第11关长笛：柔和正弦主音与少量泛音合成，每2秒一个攻击，相位0.75秒；轻颤音与平缓包络避免刺耳。
+第13关竖琴：由CC0吉他单音高音区构成的原型拨弦分解，每2秒一个攻击，相位1.25秒。首音与伤害同拍，后两个较轻装饰音分别延后0.07和0.14秒；目前不是专用竖琴采样。
+以上音高均跟随当前谱的和弦及低音。装饰音不产生额外伤害，暂停与续播仍使用相同音频时钟。
 
-版本对照
-本轮轻微混音调整：保留本版全部旋律、和声、速度及攻击时间，只小幅降低吉他主旋律、基础钢琴伴奏与低八度弦乐的音量，为鼓和拾取乐器留出空间；鼓与拾取声部参数保持不变。
-前一版把《命运》《土耳其进行曲》《春》的较长单声部谱段放在统一速度伴奏下，出现长音被截、和声转折不贴合和拾取乐器不够清楚的问题。本次根据试玩反馈回到原创组曲主线，只在后期关卡加入少量经典动机。
+单音采样与代码
+吉他、钢琴、拨奏低音提琴、小提琴来自CC0单音采样。完整原始出处与具体单音见../assets/ensemble-credits.txt，包括Versilian Studios VSCO Community Edition、VCSL与FreePats Spanish Classical Guitar。
+单音处理：单声道、去前后静音、轻淡入淡出、音量匹配和32kHz编码。弦乐稳定段做短交叉淡化循环，以保留持续音；其他采样保持自然衰减。
+单音采样的CC0许可不等于本游戏全部音乐均为CC0；尤其《卡农》改编谱与《春》改编谱/本章音乐编配须遵守以上各自许可与署名要求。
+音频引擎：suite-audio.js。三章谱与音乐查询：suite-score.js、suite-score-spring.js。
 
 
 Cat Cadenza — playable acoustic instrument samples
